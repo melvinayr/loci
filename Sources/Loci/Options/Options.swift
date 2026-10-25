@@ -25,15 +25,21 @@ public struct KnowledgeBaseOptions: Sendable {
     public var fileProtection: FileProtectionType
     /// Layers offloaded to the GPU. Use `.none` for repeatable CPU-only runs.
     public var gpuLayers: GPULayers
+    /// The generator's context window in tokens; nil uses 4096. The prompt (instructions, sources and question) and the answer
+    /// share it, and its key/value cache grows with it: Qwen3-4B needs about 150 KB per token, so 2048 instead of 4096 saves
+    /// roughly 300 MB on a phone, at the price of fewer sources per answer.
+    public var generatorContextTokens: Int?
 
     public init(
         residency: ModelResidency? = nil,
         fileProtection: FileProtectionType = .completeUntilFirstUserAuthentication,
-        gpuLayers: GPULayers = .all
+        gpuLayers: GPULayers = .all,
+        generatorContextTokens: Int? = nil
     ) {
         self.residency = residency ?? Self.defaultResidency
         self.fileProtection = fileProtection
         self.gpuLayers = gpuLayers
+        self.generatorContextTokens = generatorContextTokens
     }
 
     /// Defaults: low-memory residency on iOS, balanced elsewhere; all GPU layers; protection until first unlock.

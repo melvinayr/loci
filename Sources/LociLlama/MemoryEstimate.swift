@@ -24,7 +24,9 @@ public struct MemoryEstimate: Sendable, Equatable {
         estimate(header: try GGUFHeader.read(path: path), contextTokens: contextTokens)
     }
 
-    static func estimate(header: GGUFHeader, contextTokens: Int) -> MemoryEstimate {
+    /// - Parameter batchTokens: tokens per decode call, which sizes the scratch buffers; defaults to `contextTokens`, as for
+    ///   encoders, where the whole context is one batch. A generator decodes its prompt in batches far smaller than its context.
+    static func estimate(header: GGUFHeader, contextTokens: Int, batchTokens: Int? = nil) -> MemoryEstimate {
         let embedding = UInt64(header.embeddingLength ?? 4096)
         let tokens = UInt64(max(contextTokens, 1))
 
@@ -38,7 +40,8 @@ public struct MemoryEstimate: Sendable, Equatable {
             kv = layers * tokens * kvHeads * (keyLength + valueLength) * 2  // f16
         }
 
-        let compute = UInt64(32 << 20) + tokens * embedding * 16
+        let batch = UInt64(max(batchTokens ?? contextTokens, 1))
+        let compute = UInt64(32 << 20) + batch * embedding * 16
         return MemoryEstimate(weights: header.fileSize, kvCache: kv, compute: compute)
     }
 }

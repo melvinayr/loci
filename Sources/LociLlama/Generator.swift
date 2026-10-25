@@ -106,7 +106,8 @@ public final class Generator: TextGenerator, @unchecked Sendable {
     public static func estimatedMemory(modelAt path: String, contextTokens: Int = defaultContextTokens) throws -> UInt64 {
         let header = try GGUFHeader.read(path: path)
         try header.requireGeneratorRole()
-        return MemoryEstimate.estimate(header: header, contextTokens: contextTokens).total
+        let size = max(256, contextTokens)
+        return MemoryEstimate.estimate(header: header, contextTokens: size, batchTokens: min(512, size)).total
     }
 
     /// The model identity without loading weights.

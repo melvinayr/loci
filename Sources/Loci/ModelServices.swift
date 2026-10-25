@@ -79,6 +79,7 @@ actor ModelServices {
         case .count(let count): Int32(clamping: max(0, count))
         }
         manager = ModelResidencyManager(policy: options.residency.policy)
+        let generatorContext = options.generatorContextTokens ?? Generator.defaultContextTokens
 
         let embedderSource = models.embedder
         readEmbedderIdentity = {
@@ -128,11 +129,11 @@ actor ModelServices {
                 .generator,
                 estimatedBytes: {
                     let path = try ModelResolver.url(for: generatorSource).path
-                    do { return try Generator.estimatedMemory(modelAt: path) } catch { throw LociError.from(error, model: generatorSource) }
+                    do { return try Generator.estimatedMemory(modelAt: path, contextTokens: generatorContext) } catch { throw LociError.from(error, model: generatorSource) }
                 },
                 load: {
                     let path = try ModelResolver.url(for: generatorSource).path
-                    do { return GeneratorBox(try await Generator.load(path: path, gpuLayers: layers)) } catch {
+                    do { return GeneratorBox(try await Generator.load(path: path, gpuLayers: layers, contextTokens: generatorContext)) } catch {
                         throw LociError.from(error, model: generatorSource)
                     }
                 })

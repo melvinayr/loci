@@ -1,4 +1,5 @@
 import Foundation
+import Loci
 import os
 import Testing
 @testable import LociLlama
@@ -330,6 +331,25 @@ struct MemoryEstimateTests {
         #expect(large == small * 4)
         let multiHead = MemoryEstimate.estimate(header: header(arch: "llama", kvHeads: 16), contextTokens: 1024).kvCache
         #expect(multiHead == small * 2)
+    }
+
+    @Test func scratchBuffersFollowTheBatchNotTheContext() {
+        let whole = MemoryEstimate.estimate(header: header(arch: "qwen3"), contextTokens: 4096)
+        let batched = MemoryEstimate.estimate(header: header(arch: "qwen3"), contextTokens: 4096, batchTokens: 512)
+        #expect(batched.kvCache == whole.kvCache, "the key/value cache still covers the whole context")
+        #expect(batched.compute < whole.compute)
+        #expect(batched.total < whole.total)
+    }
+
+    @Test func aSmallerGeneratorContextLowersTheEstimate() {
+        let wide = MemoryEstimate.estimate(header: header(arch: "qwen3"), contextTokens: 4096, batchTokens: 512).total
+        let narrow = MemoryEstimate.estimate(header: header(arch: "qwen3"), contextTokens: 2048, batchTokens: 512).total
+        #expect(narrow < wide)
+    }
+
+    @Test func generatorContextIsAnOptionWithADefault() {
+        #expect(KnowledgeBaseOptions().generatorContextTokens == nil)
+        #expect(KnowledgeBaseOptions(generatorContextTokens: 2048).generatorContextTokens == 2048)
     }
 
     @Test func missingMetadataFallsBackToConservativeValuesWithoutCrashing() {
