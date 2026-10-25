@@ -61,7 +61,7 @@ Metal acceleration needs a physical Apple Silicon device. The pinned llama.cpp b
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/melvinayr/loci.git", from: "0.1.0")
+    .package(url: "https://github.com/melvinayr/loci.git", from: "0.1.2")
 ],
 targets: [
     .target(name: "MyApp", dependencies: [

@@ -4,8 +4,25 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-10-25
+
 ### Added
-- Initial package skeleton: `Package.swift` with all targets from SPEC §3, Swift 6 mode.
+- `KnowledgeBaseOptions.generatorContextTokens` to size the generator's context window (default 4096); a smaller window cuts the key/value cache, which matters on phones with a tight memory budget.
+
+### Fixed
+- Memory estimate for generators sized the scratch buffers by the whole context window instead of the 512-token decode batch, overstating it by about 150 MB for Qwen3-4B.
+
+## [0.1.1] - 2026-10-25
+
+### Fixed
+- Residency: before refusing a load as `insufficientMemory`, return freed allocator pages to the system and re-measure, so a second question on iOS is not refused because memory from the first has not been handed back yet.
+
+## [0.1.0] - 2026-10-25
+
+First release: ingest, hybrid retrieval with reranking, grounded generation with exact citations, per-sentence verification, evaluation, model downloads and the LociReader example.
+
+### Added
+- Initial package skeleton: `Package.swift` with all targets, Swift 6 mode.
 - `LlamaBackend` smoke test and `SQLiteCapabilities` FTS5 probe.
 - Integration test confirming embedding pooling works with the pinned llama.cpp.
 - `Scripts/update-llama.sh`, `Scripts/fetch-test-models.sh`, MIT `LICENSE`.
@@ -36,14 +53,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 - Invariant tests: ranges slice to chunk text, PDF pages contain chunk ranges, re-adding is a no-op.
 - M6 `LociHub`: `ModelDownloader` (Hugging Face downloads with progress, resume, streaming SHA-256 verification, disk-space check, shared in-flight downloads, cancellation that keeps the partial file) and `ModelCatalog` (the curated sets with size, memory estimate and licence). Foreground downloads only; background `URLSession` for iOS is not implemented.
 - `ModelSet.recommended` and `.quality` now name real models with pinned checksums (bge-small / nomic embedder, Qwen3-Reranker-0.6B, Qwen3-4B Q4_K_M); `docs/MODELS.md` records the measurements behind the choice.
-- `KnowledgeBaseOptions.generatorContextTokens` to size the generator's context window (default 4096); a smaller window cuts the key/value cache, which matters on phones with a tight memory budget.
 - `MemoryUsage` (current and peak process footprint) and `Benchmark` in `LociEval`; `loci-cli bench` writes `docs/BENCHMARKS.md`; `loci-cli models list|download`.
 - `Examples/LociReader`: SwiftUI document reader (import, ask, streamed answer with per-sentence support badges, tap a citation to open the PDF at the page with the passage highlighted).
 - DocC catalogue and tutorial for `Loci`.
-
-### Fixed
-- Memory estimate for generators sized the scratch buffers by the whole context window instead of the 512-token decode batch, overstating it by about 150 MB for Qwen3-4B.
-- Residency: before refusing a load as `insufficientMemory`, return freed allocator pages to the system and re-measure, so a second question on iOS is not refused because memory from the first has not been handed back yet.
 
 ### llama.cpp
 - Pinned to release `b11849` (`llama-b11849-xcframework.zip`, macOS + iOS device slices only).
@@ -56,7 +68,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 - `Answer.support` is nil only when verification did not run or the answer was refused.
 - `Evaluator(modes:)` now takes `[EvalMode]` (adds `hybrid+rerank`) instead of `[RetrievalMode]`.
 - Search with a configured reranker reranks by default, in every mode; pass `rerank: false` to skip it.
-- Opening a knowledge base never loads a model and does not throw `embedderMismatch`; operations that need the embedder do (SPEC §4.5).
+- Opening a knowledge base never loads a model and does not throw `embedderMismatch`; operations that need the embedder do.
 - `add` now embeds, so it needs an embedder. `search` defaults to `.hybrid`, which returns the nearest passages even when nothing is relevant (refusal logic arrives in M5).
 - Dropped visionOS and Mac Catalyst: the pinned llama.cpp binary has no slice for them. iOS Simulator is likewise unsupported.
-- Minimum deployment targets raised to iOS 16.4 / macOS 13.3, the floor of the pinned llama.cpp binary (SPEC §2 updated).
+- Minimum deployment targets raised to iOS 16.4 / macOS 13.3, the floor of the pinned llama.cpp binary.
