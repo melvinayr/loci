@@ -6,6 +6,7 @@ on:
 jobs:
   test:
     runs-on: macos-15
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +26,14 @@ jobs:
 
       - run: ./Scripts/fetch-test-models.sh
       - run: swift build -Xswiftc -warnings-as-errors
-      - run: swift test
+      # Unit tests use fakes and are quick, so they run in parallel.
+      - name: Unit tests
+        run: swift test --filter LociTests
+      # The tests that load real models run one suite at a time: in parallel they exhaust the runner's memory.
+      - name: Integration tests (real models, CPU)
+        run: swift test --filter LociIntegrationTests --no-parallel
+      - name: Calibration tests
+        run: swift test --filter LociCalibrationTests --no-parallel
 
       - name: Eval (small fixture set)
         run: swift run loci-cli eval --dataset Tests/Fixtures/eval-small --models fixture --out eval.md --json eval.json --fail-on-regression baseline/eval.json

@@ -269,11 +269,17 @@ struct ModelDownloaderTests {
         server.chunkDelay = .milliseconds(15)
         try await withDownloader(server: server) { downloader, models in
             let task = Task { try await downloader.ensure(source(data)) }
-            try await Task.sleep(for: .milliseconds(300))
+            // Cancel once some bytes are on disk, however slowly the machine gets there, but before the transfer can finish.
+            let part = models.appendingPathComponent("model.gguf.part")
+            let deadline = ContinuousClock.now + .seconds(20)
+            while ContinuousClock.now < deadline {
+                let size = ((try? FileManager.default.attributesOfItem(atPath: part.path)[.size]) as? NSNumber)?.intValue ?? 0
+                if size > 0 { break }
+                try await Task.sleep(for: .milliseconds(10))
+            }
             task.cancel()
             await #expect(throws: (any Error).self) { _ = try await task.value }
 
-            let part = models.appendingPathComponent("model.gguf.part")
             let kept = ((try? FileManager.default.attributesOfItem(atPath: part.path)[.size]) as? NSNumber)?.intValue ?? 0
             #expect(kept > 0 && kept < data.count, "kept \(kept) bytes")
 
