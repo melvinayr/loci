@@ -26,7 +26,7 @@ Ingest covers parsing, chunking with the embedder's tokenizer, embedding and one
 | hybrid search | 100 | 50.8 | 47.6 | 65.4 | 72.4 |
 | hybrid + rerank search (20 candidates reranked) | 10 | 626 | 619 | 663 | 663 |
 
-Vector and hybrid search include embedding the query; keyword search involves no model. SPEC §5.3 sets a target of under 50 ms for vector search over 50,000 passages on a recent iPhone; the vector rows are the corresponding measurement on this machine, with the query embedding included.
+Vector and hybrid search include embedding the query; keyword search involves no model. The project target is under 50 ms for vector search over 50,000 passages on a recent iPhone; the vector rows are the corresponding measurement on this machine, with the query embedding included.
 
 ## Cold starts
 

@@ -17,8 +17,8 @@ Requires Xcode 16+ on macOS (Apple Silicon recommended).
 ## Before you start
 
 - Open an issue for anything bigger than a bug fix.
-- Read `docs/SPEC.md` and `docs/ARCHITECTURE.md`. Layering is enforced in CI: llama.cpp only in `LociLlama`, SQLite only in `LociStore`, networking only in `LociHub`.
-- Public API changes update `docs/SPEC.md` in the same PR.
+- Read `docs/ARCHITECTURE.md`. Layering is enforced in CI: llama.cpp only in `LociLlama`, SQLite only in `LociStore`, networking only in `LociHub`.
+- Public API changes need `///` comments, a `CHANGELOG.md` entry and a README or DocC update in the same PR.
 
 ## Pull request checklist
 

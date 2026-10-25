@@ -14,7 +14,7 @@ private func withKnowledgeBase(embedder: FakeEmbedder = FakeEmbedder(), _ body: 
     try await body(kb, directory)
 }
 
-/// The invariants from CLAUDE.md rule 3, checked over everything stored:
+/// The citation invariants, checked over everything stored:
 /// every chunk range slices to exactly its text, and every PDF chunk's page contains its range.
 private func assertStoredInvariants(_ kb: KnowledgeBase, sourceLocation: SourceLocation = #_sourceLocation) async throws {
     for document in try await kb.documents() {

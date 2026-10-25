@@ -6,5 +6,5 @@
 ## Checklist
 - [ ] `swift build` / `swift test` pass, no warnings
 - [ ] Citation invariant tests pass
-- [ ] `docs/SPEC.md` updated for public API changes
+- [ ] README / DocC updated for public API or behaviour changes
 - [ ] Doc comments + `CHANGELOG.md`

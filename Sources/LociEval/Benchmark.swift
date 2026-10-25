@@ -3,7 +3,7 @@ import Loci
 
 /// What to measure and how much of it.
 public struct BenchmarkOptions: Sendable {
-    /// Passages in the synthetic corpus used for ingest and search timings. 50,000 matches the target in SPEC §5.3.
+    /// Passages in the synthetic corpus used for ingest and search timings. 50,000 is the target size for vector search.
     public var chunkCount: Int
     /// Queries timed per search mode.
     public var queries: Int
@@ -192,7 +192,7 @@ public struct Benchmark: Sendable {
         for t in report.search { lines.append("| \(t.name) | \(t.samples) | \(ms(t.meanMs)) | \(ms(t.p50Ms)) | \(ms(t.p95Ms)) | \(ms(t.maxMs)) |") }
         lines += [
             "",
-            "Vector and hybrid search include embedding the query; keyword search involves no model. SPEC §5.3 sets a target of under 50 ms for vector search over 50,000 passages on a recent iPhone; "
+            "Vector and hybrid search include embedding the query; keyword search involves no model. The project target is under 50 ms for vector search over 50,000 passages on a recent iPhone; "
                 + "the vector rows are the corresponding measurement on this machine, with the query embedding included.",
             "",
             "## Cold starts",

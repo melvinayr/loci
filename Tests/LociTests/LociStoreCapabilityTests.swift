@@ -4,7 +4,7 @@ import Testing
 @Suite("SQLite capabilities")
 struct SQLiteCapabilityTests {
     @Test func systemSQLiteHasFTS5() {
-        #expect(SQLiteCapabilities.hasFTS5(), "FTS5 missing; vendor the amalgamation (SPEC §3.2)")
+        #expect(SQLiteCapabilities.hasFTS5(), "FTS5 missing; vendor the amalgamation")
     }
 
     @Test func compileOptionsListFTS5() {

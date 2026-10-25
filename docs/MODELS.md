@@ -61,7 +61,7 @@ multilingual-e5-small, bge-reranker-v2-m3 for verification, Llama 3.2 3B Instruc
 
 ## Calibrated support thresholds
 
-Verification scores each answer sentence 0–1 (see SPEC §5.7). Numbers below come from the generated reports in `docs/reports/` (dataset `eval-small`, 93 hand-labelled pairs split 48 calibration / 45 test, 2026-10-24); the generator for the end-to-end rows is Gemma 4 E4B on Metal. Treat differences of a few points as noise: the dataset is small.
+Verification scores each answer sentence 0–1 (see the “How verification works” article in the DocC catalogue). Numbers below come from the generated reports in `docs/reports/` (dataset `eval-small`, 93 hand-labelled pairs split 48 calibration / 45 test, 2026-10-24); the generator for the end-to-end rows is Gemma 4 E4B on Metal. Treat differences of a few points as noise: the dataset is small.
 
 **Qwen3-Reranker-0.6B (Q8_0), instruction-aware verification.** Probability that a supported claim outscores an unsupported one: 0.87 (0.5 is chance); a weak one: 0.79. Unsupported claims split in two: unrelated ones score below 0.42 and are caught, but about two thirds score above 0.94, indistinguishable from supported claims.
 

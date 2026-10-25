@@ -56,7 +56,7 @@ In `.lowMemory` residency, the Embedder is unloaded after step 1, the Reranker s
 
 ## Model residency
 
-Every model use goes through one `ModelResidencyManager` per knowledge base: models load lazily, are checked against available memory first, and are kept or released by the residency policy (see SPEC §5.8). Ingest borrows the embedder for chunking (its tokenizer sizes the chunks) and embedding; search borrows it for the query, then the reranker for the top candidates. In `.lowMemory` those two borrows swap the models rather than overlapping them.
+Every model use goes through one `ModelResidencyManager` per knowledge base: models load lazily, are checked against available memory first, and are kept or released by the residency policy. Ingest borrows the embedder for chunking (its tokenizer sizes the chunks) and embedding; search borrows it for the query, then the reranker for the top candidates. In `.lowMemory` those two borrows swap the models rather than overlapping them.
 
 ## Why the reranker verifies
 

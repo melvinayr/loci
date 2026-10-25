@@ -149,10 +149,6 @@ See [docs/EVALUATION.md](docs/EVALUATION.md).
 
 Loci checks available memory before loading a model and throws `LociError.insufficientMemory` instead of letting iOS terminate your app. The default `.lowMemory` residency loads one model at a time. For larger models, add the **Increased Memory Limit** entitlement. See the Memory guide in the docs.
 
-## How Loci compares
-
-On-device RAG in Swift exists in pieces — storage, ingestion, embeddings or generation. Loci connects the full loop and adds verified citations and evaluation. See [docs/POSITIONING.md](docs/POSITIONING.md).
-
 ## Documentation
 
 Full API reference, articles and a walkthrough of the reader app are in the DocC catalogue (`Sources/Loci/Loci.docc`), hosted by Swift Package Index once the package is published. Note that SPI builds for macOS and iOS devices, and this package has no iOS Simulator slice.
@@ -171,10 +167,6 @@ Full API reference, articles and a walkthrough of the reader app are in the DocC
 **Can I use Apple's Foundation Models for the answer?** Planned for v0.2 via a `Generator` protocol.
 
 **Scanned PDFs?** Not yet — Loci reports them as unreadable. OCR is on the roadmap.
-
-## Roadmap
-
-See [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Contributing
 
