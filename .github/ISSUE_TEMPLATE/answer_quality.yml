@@ -1,0 +1,17 @@
+name: Answer quality
+description: Wrong answer, bad citation, or a hallucination that wasn't flagged
+labels: [quality]
+body:
+  - type: textarea
+    id: case
+    attributes: { label: Question, answer and citations, description: "Use a public or synthetic document if you can." }
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Problem type
+      options: [Retrieved the wrong passages, Citation points to the wrong passage, Unsupported claim marked supported, Good answer marked unsupported, Should have refused, Refused but answer was there]
+    validations: { required: true }
+  - type: input
+    id: models
+    attributes: { label: Model set }

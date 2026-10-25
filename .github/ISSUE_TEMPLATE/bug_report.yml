@@ -1,0 +1,26 @@
+name: Bug report
+description: Something isn't working
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes: { label: What happened?, description: "Include the code you ran. Do NOT paste private document content." }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: What did you expect? }
+  - type: input
+    id: models
+    attributes: { label: Model set, placeholder: "recommended / custom: embedder, reranker, generator" }
+    validations: { required: true }
+  - type: input
+    id: device
+    attributes: { label: Device and OS, placeholder: "e.g. iPhone 15 Pro, iOS 26.1" }
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes: { label: Loci version }
+    validations: { required: true }
+  - type: textarea
+    id: logs
+    attributes: { label: Logs, render: text }

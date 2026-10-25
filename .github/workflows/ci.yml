@@ -1,0 +1,41 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Layering checks
+        run: |
+          fail=0
+          grep -rln "^import llama" Sources | grep -v "^Sources/LociLlama/" && { echo "llama.cpp imported outside LociLlama"; fail=1; }
+          grep -rlnE "^import (SQLite3|CSQLite)" Sources | grep -v "^Sources/LociStore/" && { echo "SQLite imported outside LociStore"; fail=1; }
+          grep -rlnE "URLSession|^import Network|CFNetwork" Sources | grep -v "^Sources/LociHub/" && { echo "Networking outside LociHub"; fail=1; }
+          exit $fail
+
+      - name: Cache test models
+        uses: actions/cache@v4
+        with:
+          path: Tests/Fixtures/models
+          key: test-models-v3
+
+      - run: ./Scripts/fetch-test-models.sh
+      - run: swift build -Xswiftc -warnings-as-errors
+      - run: swift test
+
+      - name: Eval (small fixture set)
+        run: swift run loci-cli eval --dataset Tests/Fixtures/eval-small --models fixture --out eval.md --json eval.json --fail-on-regression baseline/eval.json
+
+      - uses: actions/upload-artifact@v4
+        with: { name: eval-report, path: "eval.*" }
+
+      - name: Build docs
+        run: xcodebuild docbuild -scheme Loci -destination 'generic/platform=macOS' -derivedDataPath .docs-build
+
+      - name: Test LociReader
+        working-directory: Examples/LociReader
+        run: swift test

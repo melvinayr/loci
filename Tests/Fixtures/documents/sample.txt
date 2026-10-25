@@ -1,0 +1,8 @@
+Plain text fixture.
+Second line of the same paragraph.
+
+
+Second paragraph with emoji 😀 and café.
+
+   
+Third paragraph.

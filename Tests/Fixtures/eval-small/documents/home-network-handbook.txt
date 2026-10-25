@@ -1,0 +1,23 @@
+Home Network Handbook
+
+Wi-Fi basics
+
+Most home routers broadcast on two bands. The 2.4 GHz band reaches further and passes through walls better, but it is slower and crowded with interference from microwaves, baby monitors and the neighbours' networks. The 5 GHz band is faster over short distances. On 2.4 GHz, only channels 1, 6 and 11 do not overlap, so pick one of those; on 5 GHz there are many more clean channels and the router can usually choose automatically.
+
+Place the router high up and in the middle of the home, away from metal objects, mirrors and fish tanks. A router in a cupboard at the edge of the house is the most common cause of weak signal in the far rooms.
+
+Mesh systems and extenders
+
+A mesh system uses several nodes that share one network name and hand devices over as you move around. For best results, place each node no further than one room away from the previous one, and connect nodes with an Ethernet cable when possible; this is called wired backhaul and removes the speed penalty of wireless links between nodes. A cheap range extender, by contrast, usually halves the throughput because it must receive and rebroadcast on the same radio.
+
+Security
+
+Use WPA3 if all your devices support it, otherwise WPA2 with a passphrase of at least 14 characters. Change the default administrator password on the router, turn off WPS, and keep the firmware current by checking for an update every three months. Put smart-home gadgets and visitors on a guest network, which isolates them from your computers and file shares.
+
+Troubleshooting slow connections
+
+First, restart the modem and router by unplugging them for 30 seconds. Then test with a cable: if the wired speed is also low, the problem is with your internet provider, not your Wi-Fi. A ping time to a nearby server above 100 milliseconds suggests congestion. The default address of most routers' admin page is 192.168.1.1 or 192.168.0.1. If one device is slow but others are fine, forget the network on that device and reconnect.
+
+Powerline adapters
+
+Powerline adapters carry the network signal over the electrical wiring. They can work in houses where Ethernet cannot be run, but speeds depend on the age of the wiring and drop sharply if the adapters are plugged into a power strip.

@@ -1,0 +1,567 @@
+{
+  "dataset" : {
+    "answerable" : 41,
+    "documents" : 8,
+    "name" : "eval-small",
+    "questions" : 49,
+    "unanswerable" : 8
+  },
+  "environment" : {
+    "device" : "Mac14,9",
+    "embedder" : "Bge Small En v1.5|384|36685152",
+    "generatedAt" : "2026-10-24T08:48:55Z",
+    "os" : "Version 26.6.2 (Build 25G83)"
+  },
+  "ingest" : {
+    "chunker" : "structural",
+    "chunks" : 97,
+    "chunksPerSecond" : 53.18837217192593,
+    "documents" : 8,
+    "overlapTokens" : 8,
+    "seconds" : 1.823706875,
+    "targetChunkTokens" : 64
+  },
+  "retrieval" : [
+    {
+      "metrics" : {
+        "latencyMeanMs" : 0.6420141951219512,
+        "latencyP50Ms" : 0.6531659999999999,
+        "latencyP95Ms" : 0.745042,
+        "mrr" : 0.9486062717770034,
+        "ndcgAt10" : 0.9494587226071177,
+        "questions" : 41,
+        "recallAt1" : 0.926829268292683,
+        "recallAt10" : 1,
+        "recallAt5" : 0.975609756097561
+      },
+      "mode" : "keyword",
+      "ranks" : [
+        {
+          "id" : "lh-1",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-2",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-3",
+          "rank" : 2
+        },
+        {
+          "id" : "lh-4",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-5",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-1",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-2",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-3",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-4",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-5",
+          "rank" : 1
+        },
+        {
+          "id" : "so-1",
+          "rank" : 1
+        },
+        {
+          "id" : "so-2",
+          "rank" : 1
+        },
+        {
+          "id" : "so-3",
+          "rank" : 1
+        },
+        {
+          "id" : "so-4",
+          "rank" : 1
+        },
+        {
+          "id" : "so-5",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-1",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-2",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-3",
+          "rank" : 7
+        },
+        {
+          "id" : "tr-4",
+          "rank" : 4
+        },
+        {
+          "id" : "tr-5",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-6",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-7",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-1",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-2",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-3",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-4",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-5",
+          "rank" : 1
+        },
+        {
+          "id" : "re-1",
+          "rank" : 1
+        },
+        {
+          "id" : "re-2",
+          "rank" : 1
+        },
+        {
+          "id" : "re-3",
+          "rank" : 1
+        },
+        {
+          "id" : "re-4",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-1",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-2",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-3",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-4",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-5",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-1",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-2",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-3",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-4",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-5",
+          "rank" : 1
+        }
+      ]
+    },
+    {
+      "metrics" : {
+        "latencyMeanMs" : 12.119078292682927,
+        "latencyP50Ms" : 12.116292000000001,
+        "latencyP95Ms" : 13.826834,
+        "mrr" : 0.9532520325203251,
+        "ndcgAt10" : 0.959964449173929,
+        "questions" : 41,
+        "recallAt1" : 0.926829268292683,
+        "recallAt10" : 1,
+        "recallAt5" : 1
+      },
+      "mode" : "vector",
+      "ranks" : [
+        {
+          "id" : "lh-1",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-2",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-3",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-4",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-5",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-1",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-2",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-3",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-4",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-5",
+          "rank" : 1
+        },
+        {
+          "id" : "so-1",
+          "rank" : 1
+        },
+        {
+          "id" : "so-2",
+          "rank" : 1
+        },
+        {
+          "id" : "so-3",
+          "rank" : 1
+        },
+        {
+          "id" : "so-4",
+          "rank" : 1
+        },
+        {
+          "id" : "so-5",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-1",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-2",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-3",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-4",
+          "rank" : 4
+        },
+        {
+          "id" : "tr-5",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-6",
+          "rank" : 2
+        },
+        {
+          "id" : "tr-7",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-1",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-2",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-3",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-4",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-5",
+          "rank" : 1
+        },
+        {
+          "id" : "re-1",
+          "rank" : 1
+        },
+        {
+          "id" : "re-2",
+          "rank" : 1
+        },
+        {
+          "id" : "re-3",
+          "rank" : 1
+        },
+        {
+          "id" : "re-4",
+          "rank" : 3
+        },
+        {
+          "id" : "nw-1",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-2",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-3",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-4",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-5",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-1",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-2",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-3",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-4",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-5",
+          "rank" : 1
+        }
+      ]
+    },
+    {
+      "metrics" : {
+        "latencyMeanMs" : 13.080865804878048,
+        "latencyP50Ms" : 13.08525,
+        "latencyP95Ms" : 15.033792,
+        "mrr" : 0.9471544715447153,
+        "ndcgAt10" : 0.9593292981975178,
+        "questions" : 41,
+        "recallAt1" : 0.9024390243902439,
+        "recallAt10" : 1,
+        "recallAt5" : 1
+      },
+      "mode" : "hybrid",
+      "ranks" : [
+        {
+          "id" : "lh-1",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-2",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-3",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-4",
+          "rank" : 1
+        },
+        {
+          "id" : "lh-5",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-1",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-2",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-3",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-4",
+          "rank" : 1
+        },
+        {
+          "id" : "sd-5",
+          "rank" : 1
+        },
+        {
+          "id" : "so-1",
+          "rank" : 1
+        },
+        {
+          "id" : "so-2",
+          "rank" : 1
+        },
+        {
+          "id" : "so-3",
+          "rank" : 1
+        },
+        {
+          "id" : "so-4",
+          "rank" : 1
+        },
+        {
+          "id" : "so-5",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-1",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-2",
+          "rank" : 1
+        },
+        {
+          "id" : "tr-3",
+          "rank" : 2
+        },
+        {
+          "id" : "tr-4",
+          "rank" : 3
+        },
+        {
+          "id" : "tr-5",
+          "rank" : 2
+        },
+        {
+          "id" : "tr-6",
+          "rank" : 2
+        },
+        {
+          "id" : "tr-7",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-1",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-2",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-3",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-4",
+          "rank" : 1
+        },
+        {
+          "id" : "tp-5",
+          "rank" : 1
+        },
+        {
+          "id" : "re-1",
+          "rank" : 1
+        },
+        {
+          "id" : "re-2",
+          "rank" : 1
+        },
+        {
+          "id" : "re-3",
+          "rank" : 1
+        },
+        {
+          "id" : "re-4",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-1",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-2",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-3",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-4",
+          "rank" : 1
+        },
+        {
+          "id" : "nw-5",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-1",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-2",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-3",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-4",
+          "rank" : 1
+        },
+        {
+          "id" : "gd-5",
+          "rank" : 1
+        }
+      ]
+    }
+  ],
+  "schemaVersion" : 1
+}

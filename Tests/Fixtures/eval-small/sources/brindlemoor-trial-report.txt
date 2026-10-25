@@ -1,0 +1,35 @@
+The Brindlemoor Trial: ZX-14 for Migraine Prevention
+Final Report, March 2025
+
+Abstract
+
+The Brindlemoor trial was a double-blind, randomised, placebo-controlled study of the investigational compound ZX-14 for the prevention of migraine in adults. Between September 2023 and November 2024, 412 participants were randomised at 9 clinical sites across the country. Participants received 20 mg of ZX-14, 40 mg of ZX-14 or placebo once daily. The primary outcome was the change in monthly migraine days between baseline and week 12. The 40 mg dose reduced monthly migraine days by 3.8 days compared with 1.1 days on placebo. The compound was generally well tolerated; nausea was the most common adverse event.
+
+Trial registration number: BRM-2023-0417.
+Methods
+
+Design and setting. Participants were recruited through neurology clinics and a national migraine registry. Randomisation was stratified by site in blocks of six using a central web-based system, and neither participants nor clinicians knew the allocation.
+
+Eligibility. Adults aged 18 to 65 with at least four migraine days per month in the three months before screening were eligible. People who were pregnant, breastfeeding or taking another preventive medication were excluded, as were those with a history of liver disease.
+
+Interventions. Participants were allocated in a 1:1:1 ratio to 20 mg ZX-14, 40 mg ZX-14 or matching placebo, taken each morning for 12 weeks. A further 12-week follow-up period without treatment was used to assess how long any benefit lasted, giving a total of 24 weeks of observation.
+
+Outcomes. The primary outcome was the change in mean monthly migraine days from baseline to week 12, recorded in an electronic diary. Secondary outcomes included the proportion of participants with a reduction of at least 50 percent, days of acute medication use, and quality of life measured with the MSQ questionnaire.
+Results
+
+Participant flow. Of 531 people screened, 412 were randomised: 138 to 20 mg, 137 to 40 mg and 137 to placebo. The average age was 41 years and 78 percent were women. In total 374 participants completed the 12-week treatment period, a dropout rate of 9.2 percent, with similar rates across the three arms.
+
+Primary outcome. Mean monthly migraine days fell by 3.8 in the 40 mg group, by 2.6 in the 20 mg group and by 1.1 in the placebo group. The difference between the 40 mg group and placebo was 2.7 days (95 percent confidence interval 1.9 to 3.5).
+
+Secondary outcomes. A reduction of at least 50 percent in migraine days was achieved by 47 percent of participants on 40 mg, 36 percent on 20 mg and 21 percent on placebo. Use of acute medication fell by 2.9 days per month on 40 mg.
+
+Safety. Adverse events were mostly mild. Nausea was reported by 14 percent of participants on 40 mg and 6 percent on placebo. Three serious adverse events occurred, none judged related to the study drug.
+Discussion
+
+The trial shows that a daily 40 mg dose of ZX-14 reduced migraine days more than placebo over 12 weeks, and that part of the benefit persisted during the 12 weeks after treatment stopped. The effect is comparable to that of existing preventive medicines, though no head-to-head comparison was made.
+
+Limitations. All sites were in one country, and participants were mostly white and recruited from specialist clinics, which limits how far the results can be generalised. The follow-up of 24 weeks is too short to assess long-term safety. The trial was not powered to compare the two active doses with each other.
+
+Funding. The study was funded by the Northfield Health Foundation, which had no role in the analysis or the decision to publish.
+
+Conclusions. ZX-14 at 40 mg daily is a promising candidate for migraine prevention. A larger phase 3 trial with longer follow-up is planned for 2026.
