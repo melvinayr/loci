@@ -40,6 +40,9 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 - `Examples/LociReader`: SwiftUI document reader (import, ask, streamed answer with per-sentence support badges, tap a citation to open the PDF at the page with the passage highlighted).
 - DocC catalogue and tutorial for `Loci`.
 
+### Fixed
+- Residency: before refusing a load as `insufficientMemory`, return freed allocator pages to the system and re-measure, so a second question on iOS is not refused because memory from the first has not been handed back yet.
+
 ### llama.cpp
 - Pinned to release `b11849` (`llama-b11849-xcframework.zip`, macOS + iOS device slices only).
 

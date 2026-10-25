@@ -1,5 +1,6 @@
 import Foundation
 import MachO
+import Darwin.malloc
 import os
 
 private let log = Logger(subsystem: "dev.loci", category: "residency")
@@ -208,6 +209,12 @@ public actor ModelResidencyManager {
         }
 
         var available = memory.availableBytes()
+        if needed > available {
+            // Evicted models free their weights and buffers, but the allocator keeps freed pages until asked; on iOS those
+            // pages still count against the app's budget, so hand them back before judging whether the load fits.
+            releaseFreedMemory()
+            available = memory.availableBytes()
+        }
         while needed > available {
             // Keep only the key: holding the entry would keep the model alive past its eviction.
             let victim = resident
@@ -218,8 +225,15 @@ public actor ModelResidencyManager {
             }
             log.notice("evicting \(victim.rawValue, privacy: .public) to make room for \(role.rawValue, privacy: .public)")
             resident[victim] = nil
+            releaseFreedMemory()
             available = memory.availableBytes()
         }
+    }
+
+    private func releaseFreedMemory() {
+        let before = memory.availableBytes()
+        _ = malloc_zone_pressure_relief(nil, 0)
+        log.info("returned freed memory to the system: available \(before) -> \(self.memory.availableBytes()) bytes")
     }
 
     // MARK: Borrowing
