@@ -22,3 +22,9 @@ Tests/Fixtures/models/
 /eval.md
 /eval.json
 *.app/
+
+# Kept locally, not published
+/CLAUDE.md
+/docs/SPEC.md
+/docs/ROADMAP.md
+/docs/POSITIONING.md
