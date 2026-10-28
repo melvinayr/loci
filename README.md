@@ -23,6 +23,23 @@ let answer = try await kb.ask("What sample size did the trial use?")
 // [1] trial.pdf · page 4 · "…412 participants were randomised…"  ✓ supported
 ```
 
+<table>
+  <tr>
+    <td width="25%"><img src="screenshot/answer.png" alt="An answer where each sentence has a support badge"></td>
+    <td width="25%"><img src="screenshot/sources.png" alt="The cited passages with document and page"></td>
+    <td width="25%"><img src="screenshot/refusal.png" alt="Loci declining a question the documents cannot answer"></td>
+    <td width="25%"><img src="screenshot/performance.png" alt="Timings and the models running on the device"></td>
+  </tr>
+  <tr>
+    <td valign="top"><sub><b>Checked answers.</b> Each sentence gets a badge; the red ✗ marks one its cited passage does not support.</sub></td>
+    <td valign="top"><sub><b>Exact sources.</b> Every citation shows the document, the page and the passage it came from.</sub></td>
+    <td valign="top"><sub><b>It says no.</b> A question the documents cannot answer is declined, not guessed.</sub></td>
+    <td valign="top"><sub><b>All on the phone.</b> Timings from one iPhone running the recommended models, no network.</sub></td>
+  </tr>
+</table>
+
+<p align="center"><sub>Screenshots are from a small test app on an iPhone, answering questions about a research paper. Speeds depend on the device and model.</sub></p>
+
 
 ---
 
